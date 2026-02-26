@@ -1,6 +1,6 @@
-# vae-kl-f8c32
+# sd15_vae-f8c32
 
-"normal" sd and sdxl vae, is what is described as "f8c4".
+"normal" sd and sdxl vae, can bbe described as "f8c4".
 8x scale, 4 channel.
 
 latest vaes like flux2, are 32 channel.
