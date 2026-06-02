@@ -22,7 +22,7 @@ Test load:
   pipe = StableDiffusionPipeline.from_pretrained(OUTDIR, torch_dtype=torch.float16).to("cuda")
 """
 
-import argparse
+import jsonargparse as argparse
 from pathlib import Path
 
 import torch
@@ -250,7 +250,7 @@ def _expand_vae_latent_io(vae, new_c: int) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="runwayml/stable-diffusion-v1-5", help="Repo id or local path")
-    ap.add_argument("--out", required=True, help="Output directory for modified pipeline")
+    ap.add_argument("--out", default="kl-f8ch32-alpha00", help="Output directory for modified pipeline")
     args = ap.parse_args()
 
     out_dir = Path(args.out)

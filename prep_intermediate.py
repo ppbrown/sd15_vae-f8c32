@@ -8,7 +8,7 @@ So this initializes those zeros to something trainable
 and writes out a new vae ready for training
 """
 
-import argparse
+import jsonargparse as argparse
 from pathlib import Path
 
 import torch
@@ -51,11 +51,10 @@ def main() -> int:
     ap = argparse.ArgumentParser(
         description="Prep a widened SD1.5 latent32 VAE for training by initializing only the zeroed new-channel blocks."
     )
-    ap.add_argument("--model", default="intermediate-model", 
+    ap.add_argument("--model", default="kl-f8ch32-alpha00", 
                     help='Input full model with "vae/" subdir or VAE-only model"'
-                    ' (default: "intermediate-model")'
                     )
-    ap.add_argument("--out", default="kl-f8ch32-alpha00", help="Output VAE-only directory (default: kl-f8ch32-alpha00)")
+    ap.add_argument("--out", default="kl-f8ch32-alpha01", help="Output VAE-only directory")
     ap.add_argument("--old-ch", type=int, default=4, help="Original SD latent channel count (default: 4)")
     ap.add_argument(
         "--extra-logvar-bias",
